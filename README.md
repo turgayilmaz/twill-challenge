@@ -1,4 +1,4 @@
-#How to Compile And Run
+# How to Compile And Run
 - The project is a Spring-Boot project. 
     - It can compiled with Maven, and then the produced war file can be deployed to an application server,
     - Or simply, **mvnw spring-boot:run** command can be executed on the project home folder, to compile, package and run.
@@ -6,7 +6,7 @@
     - https://api.github.com/users/USERNAME
     - https://api.github.com/users/USERNAME/repos
 
-#Design Decisions / Assumptions
+# Design Decisions / Assumptions
 - A simple analysis on the User and Repository data shows that;
     - User data includes three types of fields: (i) Core user fields, (ii) API URL adresses to get other information related to the user, and (iii) Some statistics data including number of repos, etc.
     - Repository data includes five types of fields: (i) Core repository fields, (ii) Owner of the data, (iii) API URL adresses to get other information related to the repo, (iv) VCS related addresses including git and svn, and (v) Some statistics data related to the repository.
@@ -21,7 +21,7 @@
 - It is assumed that name field of Repository data should not be null. Required implementations are included. 
 - Since there are not much business requirements, a small number of unit tests (according to above given assumptions/considerations) are included.
 
-#Other Notes
+# Other Notes
 - Although it is stated that database is not necessary, a simple H2 database with simple JPA repositories are included for a complete solution.
 - Project is constructed with spring-boot for simple configuration
 - Java 8 features are included where applicable (for instance, Stream usage in RepositoryService)
