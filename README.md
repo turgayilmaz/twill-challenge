@@ -2,7 +2,7 @@
 - The project is a Spring-Boot project. 
     - It can compiled with Maven, and then the produced war file can be deployed to an application server,
     - Or simply, **mvnw spring-boot:run** command can be executed on the project home folder, to compile, package and run.
-- Implemented rest services are fully compliant with thfollowing data scructures:
+- Implemented rest services are fully compliant with the following data scructures:
     - https://api.github.com/users/USERNAME
     - https://api.github.com/users/USERNAME/repos
 
