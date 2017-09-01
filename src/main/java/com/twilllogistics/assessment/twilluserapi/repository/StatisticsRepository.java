@@ -58,7 +58,7 @@ public class StatisticsRepository {
         statistics.setFollowers(rnd.nextInt());
         statistics.setFollowing(rnd.nextInt());
         statistics.setPublic_gists(rnd.nextInt());
-        statistics.setPublic_repos((int) userRepository.getUserStatisticsById(id).longValue());
+        statistics.setPublic_repos((int) userRepository.getNumberOfPublicRepositoriesByUserId(id).longValue());
 
         return statistics;
     }

@@ -4,6 +4,9 @@ package com.twilllogistics.assessment.twilluserapi.service;
  * Created by turgay on 31/08/17.
  *
  * ApiUrlConstants class is used for holding the constants that are used in URL calculation.
+ * This content of this class is also be hold in a properties file, or even in database,
+ * to make it more dynamic. Howeever, these constants are not embedded directly into the service classes
+ * to manage separately.
  */
 public class ApiUrlConstants {
 

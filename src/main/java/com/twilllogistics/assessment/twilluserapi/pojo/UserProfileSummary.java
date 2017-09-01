@@ -6,6 +6,9 @@ import com.twilllogistics.assessment.twilluserapi.data.UserType;
  * Created by turgay on 31/08/17.
  * <p>
  * This class is used for representing a small set of UserProfile fields in the Repository object
+ * In fact, UserProfileSummary is not new type of POJO class, but a redundant class in order to be
+ * conformant with the required API. This POJO class is used while preparing UserSummary objects
+ * which resides on Repository data.
  */
 public class UserProfileSummary {
 

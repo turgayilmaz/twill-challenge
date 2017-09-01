@@ -9,7 +9,9 @@ import com.twilllogistics.assessment.twilluserapi.pojo.RepositoryVcsUrls;
 /**
  * Created by turgay on 31/08/17.
  * <p>
- * Class representing the User Repository data.
+ * Class representing the User Repository data to be returned by the get REST service.
+ * Repository class is composed of several POJO objects, and while preparing REST response,
+ * these composition objects are either retrieved from database or automatically generated.
  */
 public class Repository {
 

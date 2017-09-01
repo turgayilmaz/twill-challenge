@@ -11,7 +11,10 @@ import java.util.Date;
  * Created by turgay on 31/08/17.
  * <p>
  * POJO class for the core user fields.
- * For creating a new User these fields are expected from the user.
+ * Although get REST service for User data returns User objects, the create REST service
+ * expects a UserProfile object as parameter, since a UserProfile object is actually enough
+ * to create a UserProfile object. In DB, only the UserProfile is stored.
+ *
  */
 @Entity
 public class UserProfile {

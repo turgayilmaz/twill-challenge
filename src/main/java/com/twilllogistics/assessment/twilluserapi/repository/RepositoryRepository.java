@@ -14,5 +14,10 @@ import java.util.stream.Stream;
 @Repository
 public interface RepositoryRepository extends JpaRepository<RepositoryCore, Long> {
 
+    /**
+     * Queries database for all reposiroties of a user by her login name
+     * @param login login name
+     * @return RepositoryCore list as stream for performance
+     */
     Stream<RepositoryCore> findRepositoriesByOwner_Login(String login);
 }

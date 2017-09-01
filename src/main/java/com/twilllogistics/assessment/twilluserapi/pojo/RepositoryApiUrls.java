@@ -4,6 +4,7 @@ package com.twilllogistics.assessment.twilluserapi.pojo;
  * Created by turgay on 31/08/17.
  *
  * POJO class for auto generated Repository URL addresses.
+ * This POJO class is always auto generated, while it only depends on the user login name and api deployment url path.
  */
 public class RepositoryApiUrls {
 

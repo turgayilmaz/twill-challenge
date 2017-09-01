@@ -38,6 +38,12 @@ public class TwillUserApiRestController {
     @Value("${documentation.url}")
     String documentationUrl;
 
+    /**
+     * REST service for querying users
+     * @param username User login name
+     * @return A User object if user if found,
+     *         or a 404 response along with Exception message if user is not found.
+     */
     @RequestMapping(path = "/users/{username}", method = RequestMethod.GET)
     public ResponseEntity<?> getUserByUserName(@PathVariable String username) {
         User user = userService.getUserByUserName(username);
@@ -53,6 +59,12 @@ public class TwillUserApiRestController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionMessage);
     }
 
+    /**
+     * REST service for creating users
+     * @param userProfile UserProfile object to be saved, which includes the core fields of the User object
+     * @return An HTTP 200 response if succesfully saved,
+     *         or an HTTP 400 bad request response if given UserProfile object or the user login name is empty
+     */
     @RequestMapping(path = "/users", method = RequestMethod.POST)
     public ResponseEntity<?> createUser(@RequestBody UserProfile userProfile) {
         try {
@@ -68,6 +80,13 @@ public class TwillUserApiRestController {
         return ResponseEntity.badRequest().body(exceptionMessage);
     }
 
+    /**
+     * REST service for querying repositories of a user
+     * @param username User login name
+     * @return List of Repository objects if user if found,
+     *         an empty list if the user has no repositories,
+     *         or a 404 response along with Exception message if user is not found.
+     */
     @RequestMapping(path = "/users/{username}/repos", method = RequestMethod.GET)
     public ResponseEntity<?> getRepositoriesOfUser(@PathVariable String username) {
         List<Repository> repositories = repositoryService.getRepositoriesOfUser(username);
@@ -79,6 +98,15 @@ public class TwillUserApiRestController {
 
     }
 
+    /**
+     * REST service for creating repositories for a user
+     * @param username User login name
+     * @param repository RepositoryCore object to be saved, which includes the core fields of the Repository object
+     * @return An HTTP 200 response if succesfully saved,
+     *         or an HTTP 400 bad request response
+     *           if given RepositoryCore object is empty, repository name is empty,
+     *            or the user login name is empty / not found in dDB
+     */
     @RequestMapping(path = "/users/{username}/repos", method = RequestMethod.POST)
     public ResponseEntity<?> createRepositoryForUser(@PathVariable String username, @RequestBody RepositoryCore repository) {
         try {
@@ -89,6 +117,9 @@ public class TwillUserApiRestController {
         return ResponseEntity.ok().build();
     }
 
+    /**
+     * JSON conversion configurator
+     */
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
         MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();

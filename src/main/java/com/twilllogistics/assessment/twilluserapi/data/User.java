@@ -8,7 +8,9 @@ import com.twilllogistics.assessment.twilluserapi.pojo.UserStatistics;
 /**
  * Created by turgay on 31/08/17.
  * <p>
- * Class representing the User data.
+ * Class representing the User data to be returned by the get REST service.
+ * User class is composed of several POJO objects, and while preparing REST response,
+ * these composition objects are either retrieved from database or automatically generated.
  */
 public class User {
 

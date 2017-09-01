@@ -13,7 +13,9 @@ import java.util.Date;
  * Created by turgay on 31/08/17.
  *
  * POJO class for the basic repository fields.
- * For creating a new Repository these fields are expected from the user.
+ * Although get REST service for Repository data returns Repository objects, the create REST service
+ * expects a RepositoryCore object as parameter, since a RepositoryCore object is actually enough
+ * to create a Repository object. In DB, only the RepositoryCore is stored.
  */
 @Entity
 public class RepositoryCore {

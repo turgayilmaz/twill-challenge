@@ -22,6 +22,10 @@ import static com.twilllogistics.assessment.twilluserapi.service.ApiUrlConstants
  * Created by turgay on 31/08/17.
  * <p>
  * RepositoryService provides services for retrieving and creating repositories.
+ *
+ * getRepositoriesOfUser service returns Repository objects, while createRepositoryForUser service
+ * expects a RepositoryCore object as parameter, since a RepositoryCore object is actually enough
+ * to create a Repository object. In DB, only the RepositoryCore is stored.
  */
 @Service
 public class RepositoryService {
