@@ -1,6 +1,5 @@
 package com.twilllogistics.assessment.twilluserapi.repository;
 
-import com.twilllogistics.assessment.twilluserapi.data.User;
 import com.twilllogistics.assessment.twilluserapi.pojo.RepositoryStatistics;
 import com.twilllogistics.assessment.twilluserapi.pojo.UserStatistics;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,7 @@ import java.util.Random;
 
 /**
  * Created by turgay on 31/08/17.
- *
+ * <p>
  * This class is the repository for the Statistics objects.
  */
 @Repository
@@ -21,6 +20,7 @@ public class StatisticsRepository {
 
     /**
      * This is a mockup implementation for returning statistics related to the repository.
+     *
      * @param id ID for the repository
      * @return RepositoryStatistics object related with the repository
      */
@@ -48,6 +48,7 @@ public class StatisticsRepository {
      * This method contains half real data, half mock-up.
      * Since we have repositories in out database, we get the number of public repos
      * from the database, but other fields are mocked up.
+     *
      * @param id ID for the user
      * @return UserStatistics object related with the user
      */
@@ -57,7 +58,7 @@ public class StatisticsRepository {
         statistics.setFollowers(rnd.nextInt());
         statistics.setFollowing(rnd.nextInt());
         statistics.setPublic_gists(rnd.nextInt());
-        statistics.setPublic_repos((int)userRepository.getUserStatisticsById(id).longValue());
+        statistics.setPublic_repos((int) userRepository.getUserStatisticsById(id).longValue());
 
         return statistics;
     }

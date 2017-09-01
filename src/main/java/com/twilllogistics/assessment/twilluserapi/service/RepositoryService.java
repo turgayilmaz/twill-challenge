@@ -20,7 +20,7 @@ import static com.twilllogistics.assessment.twilluserapi.service.ApiUrlConstants
 
 /**
  * Created by turgay on 31/08/17.
- *
+ * <p>
  * RepositoryService provides services for retrieving and creating repositories.
  */
 @Service
@@ -142,7 +142,7 @@ public class RepositoryService {
 
     public void createRepositoryForUser(String username, RepositoryCore repository) throws InvalidArgumentException {
         Long userId = userRepository.findIdByLogin(username);
-        if (userId==null) {
+        if (userId == null) {
             throw new InvalidArgumentException("User Not Found");
         }
         String errors = checkDataValidity(repository);

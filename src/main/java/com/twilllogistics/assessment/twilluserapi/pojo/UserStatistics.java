@@ -2,7 +2,7 @@ package com.twilllogistics.assessment.twilluserapi.pojo;
 
 /**
  * Created by turgay on 31/08/17.
- *
+ * <p>
  * POJO for representing the statistics and extra information on User data.
  * It is assumed that this data is collected by using several other tables from the database.
  */

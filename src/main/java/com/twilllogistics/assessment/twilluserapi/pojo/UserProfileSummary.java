@@ -2,13 +2,9 @@ package com.twilllogistics.assessment.twilluserapi.pojo;
 
 import com.twilllogistics.assessment.twilluserapi.data.UserType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 /**
  * Created by turgay on 31/08/17.
- *
+ * <p>
  * This class is used for representing a small set of UserProfile fields in the Repository object
  */
 public class UserProfileSummary {

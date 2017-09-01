@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * Created by turgay on 31/08/17.
- *
+ * <p>
  * POJO class for the core user fields.
  * For creating a new User these fields are expected from the user.
  */

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TwillUserApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TwillUserApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TwillUserApiApplication.class, args);
+    }
 }

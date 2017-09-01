@@ -1,9 +1,7 @@
 package com.twilllogistics.assessment.twilluserapi.repository;
 
-import com.twilllogistics.assessment.twilluserapi.data.User;
 import com.twilllogistics.assessment.twilluserapi.pojo.UserProfile;
 import com.twilllogistics.assessment.twilluserapi.pojo.UserProfileSummary;
-import com.twilllogistics.assessment.twilluserapi.pojo.UserStatistics;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

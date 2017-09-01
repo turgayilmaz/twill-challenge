@@ -41,7 +41,7 @@ public class TwillUserApiRestController {
     @RequestMapping(path = "/users/{username}", method = RequestMethod.GET)
     public ResponseEntity<?> getUserByUserName(@PathVariable String username) {
         User user = userService.getUserByUserName(username);
-        if (user!=null) {
+        if (user != null) {
             return ResponseEntity.ok(user);
         } else {
             return getUserNotFoundResponse();
@@ -71,7 +71,7 @@ public class TwillUserApiRestController {
     @RequestMapping(path = "/users/{username}/repos", method = RequestMethod.GET)
     public ResponseEntity<?> getRepositoriesOfUser(@PathVariable String username) {
         List<Repository> repositories = repositoryService.getRepositoriesOfUser(username);
-        if (repositories!=null) {
+        if (repositories != null) {
             return ResponseEntity.ok(repositories);
         } else {
             return getUserNotFoundResponse();

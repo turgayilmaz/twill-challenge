@@ -2,7 +2,7 @@ package com.twilllogistics.assessment.twilluserapi.pojo;
 
 /**
  * Created by turgay on 31/08/17.
- *
+ * <p>
  * POJO class for auto generated User URL addresses.
  */
 public class UserApiUrls {

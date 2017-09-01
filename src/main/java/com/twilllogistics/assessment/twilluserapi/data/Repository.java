@@ -1,13 +1,14 @@
 package com.twilllogistics.assessment.twilluserapi.data;
 
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import com.twilllogistics.assessment.twilluserapi.pojo.*;
-
-import javax.persistence.Entity;
+import com.twilllogistics.assessment.twilluserapi.pojo.RepositoryApiUrls;
+import com.twilllogistics.assessment.twilluserapi.pojo.RepositoryCore;
+import com.twilllogistics.assessment.twilluserapi.pojo.RepositoryStatistics;
+import com.twilllogistics.assessment.twilluserapi.pojo.RepositoryVcsUrls;
 
 /**
  * Created by turgay on 31/08/17.
- *
+ * <p>
  * Class representing the User Repository data.
  */
 public class Repository {

@@ -7,7 +7,7 @@ import com.twilllogistics.assessment.twilluserapi.pojo.UserStatistics;
 
 /**
  * Created by turgay on 31/08/17.
- *
+ * <p>
  * Class representing the User data.
  */
 public class User {
