@@ -41,7 +41,7 @@ public class TwillUserApiRestController {
     /**
      * REST service for querying users
      * @param username User login name
-     * @return A User object if user if found,
+     * @return A User object if user if found (See data structure at https://api.github.com/users/{USERNAME}),
      *         or a 404 response along with Exception message if user is not found.
      */
     @RequestMapping(path = "/users/{username}", method = RequestMethod.GET)
@@ -62,6 +62,25 @@ public class TwillUserApiRestController {
     /**
      * REST service for creating users
      * @param userProfile UserProfile object to be saved, which includes the core fields of the User object
+     *  <pre>
+     *     {
+     *       "login": "turgayilmaz",
+     *       "id": 31064481,
+     *       "avatar_url": "https://avatars2.githubusercontent.com/u/31064481?v=4",
+     *       "gravatar_id": "",
+     *       "type": "User",
+     *       "site_admin": false,
+     *       "name": null,
+     *       "company": null,
+     *       "blog": "",
+     *       "location": null,
+     *       "email": null,
+     *       "hireable": null,
+     *       "bio": null,
+     *       "created_at": "2017-08-16T09:27:27Z",
+     *       "updated_at": "2017-08-28T13:28:43Z"
+     *      }
+     *  </pre>
      * @return An HTTP 200 response if succesfully saved,
      *         or an HTTP 400 bad request response if given UserProfile object or the user login name is empty
      */
