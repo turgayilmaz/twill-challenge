@@ -16,9 +16,9 @@ import static com.twilllogistics.assessment.twilluserapi.service.ApiUrlConstants
 
 /**
  * Created by turgay on 31/08/17.
- *
+ * <p>
  * UserService provides services for retrieving and creating users.
- *
+ * <p>
  * getUserByUserName service for User data returns User objects, while createUser service
  * expects a UserProfile object as parameter, since a UserProfile object is actually enough
  * to create a UserProfile object. In DB, only the UserProfile is stored.
@@ -74,7 +74,7 @@ public class UserService {
 
     public void createUser(UserProfile userProfile) throws InvalidArgumentException {
         String errors = checkDataValidity(userProfile);
-        if (errors !=null) {
+        if (errors != null) {
             throw new InvalidArgumentException(errors);
         }
         userRepository.save(userProfile);
@@ -83,12 +83,10 @@ public class UserService {
     String checkDataValidity(UserProfile userProfile) {
         if (userProfile == null) {
             return "UserProfile should not be null";
+        } else if (userProfile.getLogin() == null) {
+            return "UserProfile.login should not be null";
         } else {
-            if (userProfile.getLogin()==null) {
-                return "UserProfile.login should not be null";
-            } else {
-                return null;
-            }
+            return null;
         }
     }
 }

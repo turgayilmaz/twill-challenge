@@ -1,7 +1,6 @@
 package com.twilllogistics.assessment.twilluserapi.service;
 
 import com.twilllogistics.assessment.twilluserapi.data.Repository;
-import com.twilllogistics.assessment.twilluserapi.data.User;
 import com.twilllogistics.assessment.twilluserapi.data.UserSummary;
 import com.twilllogistics.assessment.twilluserapi.data.UserType;
 import com.twilllogistics.assessment.twilluserapi.exception.InvalidArgumentException;
@@ -76,7 +75,7 @@ public class RepositoryServiceTest {
         UserSummary owner = new UserSummary();
         RepositoryCore repositoryCore = new RepositoryCore();
         repositoryCore.setId(1l);
-        Repository repository = repositoryService.getRepository("turgayilmaz", owner, repositoryCore);
+        Repository repository = repositoryService.constructNewRepository("turgayilmaz", owner, repositoryCore);
 
         assertEquals(repositoryCore, repository.getRepositoryCore());
         assertEquals(owner, repository.getOwner());

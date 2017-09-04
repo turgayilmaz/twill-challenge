@@ -54,11 +54,6 @@ public class TwillUserApiRestController {
         }
     }
 
-    private ResponseEntity<?> getUserNotFoundResponse() {
-        ExceptionMessage exceptionMessage = new ExceptionMessage("User Not Found", documentationUrl);
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionMessage);
-    }
-
     /**
      * REST service for creating users
      * @param userProfile UserProfile object to be saved, which includes the core fields of the User object
@@ -92,11 +87,6 @@ public class TwillUserApiRestController {
             return getBadRequestResponseEntity(e);
         }
         return ResponseEntity.ok().build();
-    }
-
-    private ResponseEntity<?> getBadRequestResponseEntity(InvalidArgumentException e) {
-        ExceptionMessage exceptionMessage = new ExceptionMessage(e.getMessage(), documentationUrl);
-        return ResponseEntity.badRequest().body(exceptionMessage);
     }
 
     /**
@@ -136,8 +126,19 @@ public class TwillUserApiRestController {
         return ResponseEntity.ok().build();
     }
 
+    private ResponseEntity<?> getUserNotFoundResponse() {
+        ExceptionMessage exceptionMessage = new ExceptionMessage("User Not Found", documentationUrl);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionMessage);
+    }
+
+    private ResponseEntity<?> getBadRequestResponseEntity(InvalidArgumentException e) {
+        ExceptionMessage exceptionMessage = new ExceptionMessage(e.getMessage(), documentationUrl);
+        return ResponseEntity.badRequest().body(exceptionMessage);
+    }
+
     /**
      * JSON conversion configurator
+     * According the given API requirements, the dates has to be in ISO8601 format.
      */
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {

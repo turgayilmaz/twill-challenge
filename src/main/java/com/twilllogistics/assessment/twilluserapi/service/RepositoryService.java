@@ -55,24 +55,12 @@ public class RepositoryService {
             Stream<RepositoryCore> repositoryCoreStream =
                     repositoryRepository.findRepositoriesByOwner_Login(username).parallel();
             return repositoryCoreStream
-                    .map(repositoryCore -> getRepository(username, owner, repositoryCore))
+                    .map(repositoryCore -> constructNewRepository(username, owner, repositoryCore))
                     .collect(Collectors.toList());
         } else {
             return null;
         }
 
-    }
-
-    Repository getRepository(String username, UserSummary owner, RepositoryCore repositoryCore) {
-        Repository repository = new Repository();
-        repository.setRepositoryCore(repositoryCore);
-        repository.setOwner(owner);
-        RepositoryApiUrls repositoryApiUrls = createRepositoryApiUrls(username, repositoryCore.getName());
-        repository.setRepositoryApiUrls(repositoryApiUrls);
-        RepositoryVcsUrls repositoryVcsUrls = createRepositoryVcsUrls(repositoryApiUrls.getFull_name());
-        repository.setRepositoryVcsUrls(repositoryVcsUrls);
-        repository.setRepositoryStatistics(statisticsRepository.getRepositoryStatisticsById(repository.getRepositoryCore().getId()));
-        return repository;
     }
 
     UserSummary getOwner(String username) {
@@ -83,12 +71,24 @@ public class RepositoryService {
         return null;
     }
 
-    private UserSummary getUserSummary(String username, UserProfileSummary userProfileSummary) {
+    UserSummary getUserSummary(String username, UserProfileSummary userProfileSummary) {
         UserApiUrls userApiUrls = userService.createUserApiUrlWithLoginName(username);
         UserSummary owner = new UserSummary();
         owner.setUserProfileSummary(userProfileSummary);
         owner.setUserApiUrls(userApiUrls);
         return owner;
+    }
+
+    Repository constructNewRepository(String username, UserSummary owner, RepositoryCore repositoryCore) {
+        Repository repository = new Repository();
+        repository.setRepositoryCore(repositoryCore);
+        repository.setOwner(owner);
+        RepositoryApiUrls repositoryApiUrls = createRepositoryApiUrls(username, repositoryCore.getName());
+        repository.setRepositoryApiUrls(repositoryApiUrls);
+        RepositoryVcsUrls repositoryVcsUrls = createRepositoryVcsUrls(repositoryApiUrls.getFull_name());
+        repository.setRepositoryVcsUrls(repositoryVcsUrls);
+        repository.setRepositoryStatistics(statisticsRepository.getRepositoryStatisticsById(repository.getRepositoryCore().getId()));
+        return repository;
     }
 
     RepositoryApiUrls createRepositoryApiUrls(String username, String repoName) {
@@ -159,15 +159,13 @@ public class RepositoryService {
         repositoryRepository.save(repository);
     }
 
-    private String checkDataValidity(RepositoryCore repositoryCore) {
+    String checkDataValidity(RepositoryCore repositoryCore) {
         if (repositoryCore == null) {
             return "Repository data should not be null";
-        } else {
-            if (repositoryCore.getName() == null) {
+        } else if (repositoryCore.getName() == null) {
                 return "Repository.name should not be null";
-            } else {
+        } else {
                 return null;
-            }
         }
     }
 }
